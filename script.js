@@ -2,31 +2,51 @@
 
 /*УРОК 5*/
 
-let title = prompt("Как называется ваш проект?");
-let screens = prompt("Какие типы экранов нужно разработать?");
-let screenPrice = +prompt("Сколько бкдет стоить данная работа?");
-let adaptive = confirm("Нужен ли адаптив на сайте?");
-
+let title;
+let screens;
+let screenPrice;
+let adaptive;
 let rollback = 10;
 let allServicePrices;
 let fullPrice;
 let servicePercentPrice;
+let service1;
+let service2;
 
-let service1 = prompt("Какой дополнительный тип услуги нужен?");
-let servicePrice1 = +prompt("Сколько это будет стоить?");
-let service2 = +prompt("Какой дополнительный тип услуги нужен?");
-let servicePrice2 = +prompt("Сколько это будет стоить?");
+const asking = function () {
+  title = prompt("Как называется ваш проект?", "Калькулятор верстки");
+  screens = prompt("Какие типы экранов нужно разработать?", "5000");
+
+  screenPrice = prompt("Сколько бкдет стоить данная работа?");
+  while (isNaN(screenPrice) || screenPrice === "" || screenPrice === null) {
+    screenPrice = prompt("Сколько будет стоить данная услуга?")
+  }
+   
+  adaptive = confirm("Нужен ли адаптив на сайте?");
+};
 
 const getAllServicePrices = function () {
-  return servicePrice1 + servicePrice2;
+  let sum = 0;
+
+  for (let i = 0; i < 2; i++) {
+    if (i === 0) {
+      service1 = prompt("Какой дополнительный тип услуги нужен?");
+    } else if (i === 1) {
+      service2 = +prompt("Какой дополнительный тип услуги нужен?");
+    }
+
+    sum += +prompt("Сколько это будет стоить?");
+  }
+  return sum;
 };
+
 const showTypeOf = function (variable) {
   console.log(variable, typeof variable);
 };
 
 const getFullPrice = function () {
-    return screenPrice + allServicePrices
-}
+  return screenPrice + allServicePrices;
+};
 
 const getServicePercentPrice = function () {
   return fullPrice - fullPrice * (rollback / 100);
@@ -49,7 +69,7 @@ const getRollbackMessage = function (price) {
     return "Что-то пошло не так";
   }
 };
-
+asking()
 allServicePrices = getAllServicePrices();
 fullPrice = getFullPrice();
 servicePercentPrice = getServicePercentPrice();
@@ -59,6 +79,7 @@ showTypeOf(title);
 showTypeOf(screenPrice);
 showTypeOf(adaptive);
 
+console.log("allServicePrices", allServicePrices);
 console.log(getRollbackMessage(fullPrice));
 console.log(typeof title);
 console.log(typeof screenPrice);
