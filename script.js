@@ -1,38 +1,23 @@
-'use strict';
+"use strict";
 
-/*УРОК 5*/
-let potato = 10;
+/*УРОК 6*/
+let number = prompt("Угадай число от 1 до 100");
 
-// const peelPotato = function(num) {
-//     return 'Картошка №' + num + ' почищена'
-// }
-// console.log(peelPotato(1));
-
-/*const peelPotato = function(potatoIndex){
-    if (potatoIndex >= -10) {
-        console.log('Картошка №' + potatoIndex + ' почищена');
-        potatoIndex--
-        peelPotato(potatoIndex);
-    }
-}
-peelPotato(potato)*/ //рекурсия
-
-
-// for(let i = 10; i > 0; i--) {
-//     console.log('Картошка №' + i + ' почищена');
-// } //цикл for
-
-// while (potato > 0){
-//     console.log('Картошка №' + potato + 'почищена');
-//     potato--
-// }
-
-// do{
-//     console.log('Картошка №' + potato + 'почищена');
-//     potato--
-// } while (potato > 0)
-
-/*for(let i = 10; i > 0; i--) {
-    if (i === 5) continue
-     console.log('Картошка №' + i + ' почищена');
-} */
+const countSum = function () {
+  if (number > 100) {
+    console.log("Загаданное число больше");
+    number = prompt("Введи новый вариант");
+    console.log(number);
+  } else if (number < 100 && number > 1) {
+    console.log("Загаданное число меньше");
+    number = prompt("Введи новый вариант");
+    console.log(number);
+  } else if (isNaN(number) || number === null) {
+    alert("Введи число");
+    number = prompt("Введи новый вариант");
+    console.log("Игра окончена");
+  } else if (number = 100) {
+    console.log("Поздравляю, Вы угадали!!!");
+  }
+};
+countSum();
