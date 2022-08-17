@@ -1,38 +1,38 @@
-'use strict';
+"use strict";
 
-/*УРОК 5*/
-let potato = 10;
+/*УРОК 7*/
+// let name = 'Alex'
 
-// const peelPotato = function(num) {
-//     return 'Картошка №' + num + ' почищена'
-// }
-// console.log(peelPotato(1));
-
-/*const peelPotato = function(potatoIndex){
-    if (potatoIndex >= -10) {
-        console.log('Картошка №' + potatoIndex + ' почищена');
-        potatoIndex--
-        peelPotato(potatoIndex);
-    }
-}
-peelPotato(potato)*/ //рекурсия
-
-
-// for(let i = 10; i > 0; i--) {
-//     console.log('Картошка №' + i + ' почищена');
-// } //цикл for
-
-// while (potato > 0){
-//     console.log('Картошка №' + potato + 'почищена');
-//     potato--
+// let person = { //объект
+//   name: 'Alex',
+//   age: 33,
+//   job: {
+//     position: 'middle-developer',
+//     salary: '100000'
+//   },
+//   say: function (str) {
+//     console.log(str);
+//   }  //метод объекта- функция вложенная в объект
 // }
 
-// do{
-//     console.log('Картошка №' + potato + 'почищена');
-//     potato--
-// } while (potato > 0)
+// person.say('Hello world')
+// console.log(person);
 
-/*for(let i = 10; i > 0; i--) {
-    if (i === 5) continue
-     console.log('Картошка №' + i + ' почищена');
-} */
+const books = [
+  { id: 0, name: "Дорога домой", author: "Виталий Зыков", price: 1200 },
+  { id: 1, name: "Война за выживание", author: "Виталий Зыков", price: 1500 },
+  {
+    id: 2,
+    name: "Мир бесчисленных островов",
+    author: "Виталий Зыков",
+    price: 1300,
+  },
+];
+
+const result = books.findIndex(function(item, index, array) {
+  return item.id === 3;
+});
+
+books.splice(result, 1)
+
+console.log(books);
