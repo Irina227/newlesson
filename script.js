@@ -14,7 +14,7 @@ const appData = {
     servicePercentPrice: 0,
     service1: '',
     service2: '',
-    asking: function () {
+    asking: function () { //метод объекта
       appData.title = prompt("Как называется ваш проект?", "Калькулятор верстки");
       appData.screens = prompt("Какие типы экранов нужно разработать?", "5000");
     
@@ -84,20 +84,9 @@ const appData = {
 
 
 
-
-
-
-
-
-
-
-
 appData.asking();
-appData.allServicePrices = getAllServicePrices();
-appData.fullPrice = getFullPrice();
-appData.servicePercentPrice = getServicePercentPrice();
-appData.title = getTitle();
-
-console.log(appData.fullPrice);
-console.log(appData.servicePercentPrice);
+appData.allServicePrices = appData.getAllServicePrices();
+appData.fullPrice = appData.getFullPrice();
+appData.servicePercentPrice = appData.getServicePercentPrice();
+appData.title = appData.getTitle();
 
