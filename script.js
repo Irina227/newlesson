@@ -77,16 +77,18 @@ const appData = {
       } else {
         return "Что-то пошло не так";
       }
-    }
+    }, 
 
-
+    start: {
+      asking(),
+      getAllServicePrices(),
+      getFullPrice(),
+      getServicePercentPrice(),
+      getTitle(),
+      allServicePrices = appData.getAllServicePrices(),
+      fullPrice = appData.getFullPrice(),
+      servicePercentPrice = appData.getServicePercentPrice(),
+      title = appData.getTitle(),
+    },
 }
-
-
-
-appData.asking();
-appData.allServicePrices = appData.getAllServicePrices();
-appData.fullPrice = appData.getFullPrice();
-appData.servicePercentPrice = appData.getServicePercentPrice();
-appData.title = appData.getTitle();
-
+appData.start();
