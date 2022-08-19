@@ -80,7 +80,7 @@ const appData = {
     }, 
 
     start: {
-      asking(),
+      asking(), 
       getAllServicePrices(),
       getFullPrice(),
       getServicePercentPrice(),
@@ -89,6 +89,6 @@ const appData = {
       fullPrice = appData.getFullPrice(),
       servicePercentPrice = appData.getServicePercentPrice(),
       title = appData.getTitle(),
-    },
-}
+    }
+};
 appData.start();
