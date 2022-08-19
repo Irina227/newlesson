@@ -1,31 +1,41 @@
 "use strict";
 
 /*УРОК 6*/
-let number = prompt("Угадай число от 1 до 100");
+const isNumber = function(n) {
+  return !isNaN(parseFloat(n));
+};
 
 const countSum = function () {
-  if (number > 100) {
-    console.log("Загаданное число больше");
-    number = prompt("Введи новый вариант");
-    console.log("Новый вариант " + number);
-  }
+  let randomNum = parseInt(Math.random() * 100);
+  console.log(randomNum);
 
-  if (number < 1) {
-    console.log("Загаданное число меньше");
-    number = prompt("Введи новый вариант");
-    console.log("Новый вариант " + number);
-  }
+  return function countNun() {
+    let userNum = prompt('Угадай число от 1 до 100');
 
-  if (isNaN(number)) {
-    alert("Введи число");
-    number = prompt("Введи новый вариант");
-  }
-  if (number === null) {
-    console.log("Игра окончена");
-  }
+    if (userNum === null) {
+      alert('Игра окончена');
+      return;
+    }
 
-  if (number = 100) {
-    console.log("Поздравляю, Вы угадали!!!");
-  }
-};
-countSum(number);
+    if (!isNumber(userNum)) {
+      userNum = alert('Введи число!');
+      countNun();
+    }
+
+    if (userNum > randomNum) {
+      alert('Загаданное число меньше');
+      countNun();
+    } 
+    if (userNum < randomNum) {
+      alert('Загаданное число больше');
+      countNun();
+    } else { (userNum === randomNum)
+  
+      alert('Поздравляю, Вы угадали!!!');
+      return;
+    }
+  };
+}
+
+const startGame = countSum();
+startGame();
