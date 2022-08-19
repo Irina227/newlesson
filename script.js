@@ -79,16 +79,26 @@ const appData = {
       }
     }, 
 
-    start: {
-      asking(), 
-      getAllServicePrices(),
-      getFullPrice(),
-      getServicePercentPrice(),
-      getTitle(),
-      allServicePrices = appData.getAllServicePrices(),
-      fullPrice = appData.getFullPrice(),
-      servicePercentPrice = appData.getServicePercentPrice(),
-      title = appData.getTitle(),
+    start: function (){
+      appData.asking();
+      appData.getAllServicePrices();
+      appData.getFullPrice();
+      appData.getServicePercentPrice();
+      appData.getTitle();
+      appData.allServicePrices = appData.getAllServicePrices();
+      appData.fullPrice = appData.getFullPrice();
+      appData.servicePercentPrice = appData.getServicePercentPrice();
+      appData.title = appData.getTitle();
+    },
+    logger: function () { 
+      console.log(appData.allServicePrices);
+      console.log(appData.servicePercentPrice);
+      console.log(appData.fullPrice);
+      console.log(appData.title);
     }
 };
 appData.start();
+// appData.logger();
+for (const logger in appData) {
+  console.log ("Ключ: " + logger + "Значение: " + appData[logger]);
+}
