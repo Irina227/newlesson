@@ -1,38 +1,108 @@
 "use strict";
 
 /*УРОК 7*/
-// let name = 'Alex'
 
-// let person = { //объект
-//   name: 'Alex',
-//   age: 33,
-//   job: {
-//     position: 'middle-developer',
-//     salary: '100000'
-//   },
-//   say: function (str) {
-//     console.log(str);
-//   }  //метод объекта- функция вложенная в объект
-// }
-
-// person.say('Hello world')
-// console.log(person);
-
-const books = [
-  { id: 0, name: "Дорога домой", author: "Виталий Зыков", price: 1200 },
-  { id: 1, name: "Война за выживание", author: "Виталий Зыков", price: 1500 },
-  {
-    id: 2,
-    name: "Мир бесчисленных островов",
-    author: "Виталий Зыков",
-    price: 1300,
+const appData = {
+  title: "",
+  screens: [],
+  screenPrice: 0,
+  adaptive: true,
+  rollback: 10,
+  allServicePrices: 0,
+  fullPrice: 0,
+  servicePercentPrice: 0,
+  services: {},
+  start: function () {
+    appData.asking();
+    appData.addPrices();
+    appData.getFullPrice();
+    appData.getServicePercentPrice();
+    appData.getTitle();
+    appData.logger();
   },
-];
+  isNumber: function (num) {
+    return !isNaN(parseFloat(num)) && isFinite(num);
+  },
+  asking: function () {
+    //метод объекта
+    appData.title = prompt("Как называется ваш проект?", "Калькулятор верстки");
+    if (typeof appData.title === "string" || val instanceof String);
+    for (let i = 0; i < 2; i++) {
+      let name = prompt("Какие типы экранов нужно разработать?");
+      if (typeof name === "string" || val instanceof String);
+      let price = 0;
 
-const result = books.findIndex(function(item, index, array) {
-  return item.id === 3;
-});
+      do {
+        price = prompt("Сколько будет стоить данная работа?");
+      } while (!appData.isNumber(price));
+      // if (isNaN(price)) {
+      //   return ((isNaN(price)))
+      // };
 
-books.splice(result, 1)
+      appData.screens.push({ id: i, name: name, price: price });
+    }
 
-console.log(books);
+    for (let i = 0; i < 2; i++) {
+      let name = prompt("Какой дополнительный тип услуги нужен?");
+      let price = 0;
+
+      do {
+        price = prompt("Сколько это будет стоить?");
+      } while (appData.isNumber(price));
+
+      appData.services[name] = +price;
+    }
+
+    appData.adaptive = confirm("Нужен ли адаптив на сайте?");
+  },
+
+  addPrices: function () {
+    for (let screen of appData.screens) {
+      appData.screenPrice += +screen.price;
+    }
+    for (let key in appData.services) {
+      appData.allServicePrices += appData.services[key];
+    }
+  },
+
+  getFullPrice: function () {
+    appData.fullPrice = +appData.screenPrice + appData.allServicePrices;
+  },
+
+  getServicePercentPrice: function () {
+    appData.servicePercentPrice =
+      appData.fullPrice - appData.fullPrice * (appData.rollback / 100);
+  },
+
+  getTitle: function () {
+    appData.title =
+      appData.title.trim()[0].toUpperCase() +
+      appData.title.trim().substr(1).toLowerCase();
+  },
+
+  getRollbackMessage: function (price) {
+    if (price >= 30000) {
+      return "Даем скидку в 10%";
+    } else if (price >= 15000 && price < 30000) {
+      return "Даем скидку в 5%";
+    } else if (price >= 0 && price < 15000) {
+      return "Скидка не предусмотрена";
+    } else {
+      return "Что-то пошло не так";
+    }
+  },
+
+  logger: function () {
+    console.log(appData.servicePercentPrice);
+    console.log(appData.fullPrice);
+    console.log(appData.screens);
+    console.log("Как называется ваш проект?" + " " + typeof appData.title );
+    console.log("Какие типы экранов нужно разработать?" + " " + typeof name );
+    console.log("Сколько будет стоить данная работа" + " " + typeof price);
+  },
+};
+appData.start();
+// appData.logger();
+// for (const logger in appData) {
+//   console.log("Ключ: " + logger + "Значение: " + appData[logger]);
+// }
