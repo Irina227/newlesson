@@ -50,6 +50,9 @@ const appData = {
 
       do {
         price = prompt("Сколько это будет стоить?");
+        if (isNaN(price)) {
+          return (isNaN(price))
+        };
       } while (appData.isNumber(price));
 
       appData.services[name] = +price;
@@ -99,9 +102,10 @@ const appData = {
     console.log(appData.fullPrice);
     console.log(appData.screens);
     console.log("Как называется ваш проект?" + " " + typeof appData.title );
-    console.log("Какие типы экранов нужно разработать?" + " " + typeof name );
+    console.log("Какие типы экранов нужно разработать?" + " " + typeof name);
     console.log("Сколько будет стоить данная работа?" + " " + typeof price);
-    console.log("Какой дополнительный тип услуги нужен будет?" + " " + typeof name );
+    console.log("Какой дополнительный тип услуги нужен будет?" + " " + typeof name);
+    console.log("Сколько это будет стоить?" + " " + typeof price);
   },
 };
 appData.start();
