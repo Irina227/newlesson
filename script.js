@@ -34,16 +34,18 @@ const appData = {
 
       do {
         price = prompt("Сколько будет стоить данная работа?");
+        if (isNaN(price)) {
+          return (isNaN(price))
+        };
       } while (!appData.isNumber(price));
-      // if (isNaN(price)) {
-      //   return ((isNaN(price)))
-      // };
+      
 
       appData.screens.push({ id: i, name: name, price: price });
     }
 
     for (let i = 0; i < 2; i++) {
       let name = prompt("Какой дополнительный тип услуги нужен?");
+      if (typeof name === "string" || val instanceof String);
       let price = 0;
 
       do {
@@ -98,7 +100,8 @@ const appData = {
     console.log(appData.screens);
     console.log("Как называется ваш проект?" + " " + typeof appData.title );
     console.log("Какие типы экранов нужно разработать?" + " " + typeof name );
-    console.log("Сколько будет стоить данная работа" + " " + typeof price);
+    console.log("Сколько будет стоить данная работа?" + " " + typeof price);
+    console.log("Какой дополнительный тип услуги нужен будет?" + " " + typeof name );
   },
 };
 appData.start();
