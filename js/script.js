@@ -5,8 +5,8 @@ const title = document.getElementById('title');
 console.log(title);
 
 
-const listItems = document.getElementsByTagName('h1');
-console.log(listItems[0]);
+const listItems = document.getElementsByTagName('h1')[2];
+console.log(listItems);
 
 
 const links = document.getElementsByClassName('handler_btn');
