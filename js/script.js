@@ -1,46 +1,34 @@
 "use strict";
 
-/*УРОК 9*/
-const title = document.getElementById('title');
-console.log(title);
+/*УРОК 10*/
+const books = document.querySelectorAll(".book"); //обращение к книге, меняются местами книги
+const elem = document.querySelectorAll("ul");
 
+books[0].before(books[1]);
+books[4].after(books[3]);
+books[5].after(books[2]);
 
-const listItems = document.getElementsByTagName('h1')[2];
-console.log(listItems);
+books[0].querySelector("ul");
+books[0].append(elem[3]);
 
+console.log(books);
+console.log(books[0]);
 
-const links = document.getElementsByClassName('handler_btn');
-console.log(links[0]);
-console.log(links[1]);
+document.body.style.background = "red";
 
+const google = document.querySelectorAll(".adv"); //убрали рекламу
+google[0].remove();
 
-const title1 = document.querySelector('.screen-btn');
-console.log(title1);
+const listing = document.querySelectorAll("a"); //передача новой строки элементу
+listing[2].replaceWith("Книга 3. this и Прототипы Объектов");
 
+// const href = document.querySelectorAll('ul');//обращение к списку
+// const elems = document.querySelectorAll('li');//обращение к элементу списка
 
-const titleone = document.querySelectorAll('.other-items.percent');
-console.log(titleone);
+// href[4].prepend(elems[1]);
+// console.log(elems);
 
+// list[6].replaceWith('Книга 3. this и Прототипы Объектов');
+// list[2].append('Глава 8: За пределами ES6');
 
-const titletwo = document.querySelectorAll('.other-items.number');
-console.log(titletwo);
-
-
-const one = document.querySelector('[class="main-controls__item rollback"]');
-console.log(one);
-
-
-const two = document.querySelector('div > span');
-console.log(two);
-
-
-const onetwo = document.getElementsByClassName('total-input');
-console.log(onetwo[0]);
-console.log(onetwo[1]);
-console.log(onetwo[2]);
-console.log(onetwo[3]);
-console.log(onetwo[4]);
-
-
-let call = document.querySelectorAll('.screen');
-console.log(call);
+// console.log(list);
