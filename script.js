@@ -2,6 +2,28 @@
 
 /*УРОК 7*/
 
+const title = document.getElementsByTagName('h1')[0];
+
+const bittonPlus = document.querySelector('.screen-btn');
+const otherItemPersent = document.querySelectorAll('.other-items.percent');
+const otherItemNumber = document.querySelectorAll('.other-items.number');
+
+
+const inputRange = document.querySelector('.rollback input');
+const inputRangeValue = document.querySelector('.rollback .range-value');
+
+const startBtn = document.getElementsByClassName('handler_btn')[0];
+const resetBtn = document.getElementsByClassName('handler_btn')[1];
+
+
+const total = document.getElementsByClassName('total-input')[0];
+const totalCount = document.getElementsByClassName('total-input')[1];
+const totalCountOther = document.getElementsByClassName('total-input')[2];
+const fullTotalCount = document.getElementsByClassName('total-input')[3];
+const totalCountRollback = document.getElementsByClassName('total-input')[4];
+
+let screens = document.querySelectorAll('.screen');
+
 const appData = {
   title: "",
   screens: [],
@@ -12,13 +34,20 @@ const appData = {
   fullPrice: 0,
   servicePercentPrice: 0,
   services: {},
+  init: function() {
+    appData.addTitle()
+    appData.start()
+  },
+  addTitle: function () {
+    console.log(title);
+  },
   start: function () {
-    appData.asking();
-    appData.addPrices();
-    appData.getFullPrice();
-    appData.getServicePercentPrice();
-    appData.getTitle();
-    appData.logger();
+    // appData.asking();
+    // appData.addPrices();
+    // appData.getFullPrice();
+    // appData.getServicePercentPrice();
+    // appData.getTitle();
+    // appData.logger();
   },
   isNumber: function (num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
@@ -26,10 +55,10 @@ const appData = {
   asking: function () {
     //метод объекта
     appData.title = prompt("Как называется ваш проект?", "Калькулятор верстки");
-    if (typeof appData.title === "string" || val instanceof String);
+ 
     for (let i = 0; i < 2; i++) {
       let name = prompt("Какие типы экранов нужно разработать?");
-      if (typeof name === "string" || val instanceof String);
+    
       let price = 0;
 
       do {
@@ -45,7 +74,6 @@ const appData = {
 
     for (let i = 0; i < 2; i++) {
       let name = prompt("Какой дополнительный тип услуги нужен?");
-      if (typeof name === "string" || val instanceof String);
       let price = 0;
 
       do {
@@ -101,15 +129,7 @@ const appData = {
     console.log(appData.servicePercentPrice);
     console.log(appData.fullPrice);
     console.log(appData.screens);
-    console.log("Как называется ваш проект?" + " " + typeof appData.title );
-    console.log("Какие типы экранов нужно разработать?" + " " + typeof name);
-    console.log("Сколько будет стоить данная работа?" + " " + typeof price);
-    console.log("Какой дополнительный тип услуги нужен будет?" + " " + typeof name);
-    console.log("Сколько это будет стоить?" + " " + typeof price);
-  },
+  }
 };
-appData.start();
-// appData.logger();
-// for (const logger in appData) {
-//   console.log("Ключ: " + logger + "Значение: " + appData[logger]);
-// }
+appData.init();
+
