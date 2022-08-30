@@ -36,12 +36,13 @@ const appData = {
   services: {},
   init: function() {
     appData.addTitle()
-    appData.start()
+    startBtn.addEventListener('click', appData.start)
   },
   addTitle: function () {
-    console.log(title);
+    document.title = title.textContent
   },
   start: function () {
+    appData.addScreens()
     // appData.asking();
     // appData.addPrices();
     // appData.getFullPrice();
@@ -51,6 +52,15 @@ const appData = {
   },
   isNumber: function (num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
+  },
+  addScreens: function () {
+    screens.forEach(function(screen){
+      const select = screen.querySelector('select')
+      const input = screen.querySelector('input')
+
+      console.dir(select);
+      console.log(input.value);
+    })
   },
   asking: function () {
     //метод объекта
