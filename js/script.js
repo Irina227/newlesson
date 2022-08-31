@@ -5,7 +5,7 @@ const elem = document.getElementById('title');
 console.log(elem);
 
 
-const title = document.getElementsByTagName('h1')[0]
+const title = document.getElementsByTagName('h1')[0];
 console.log(title);
 
 
