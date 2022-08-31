@@ -1,29 +1,30 @@
 "use strict";
 
 /*УРОК 9*/
-const title = document.getElementById('title');
+const elem = document.getElementById('title');
+console.log(elem);
+
+
+const title = document.getElementsByTagName('h1')[0]
 console.log(title);
 
 
-const listItems = document.getElementsByTagName('h1');
-console.log(listItems[0]);
+const startBtn = document.getElementsByClassName('handler_btn')[0];
+const resetBtn = document.getElementsByClassName('handler_btn')[1];
+console.log(startBtn);
+console.log(resetBtn);
 
 
-const links = document.getElementsByClassName('handler_btn');
-console.log(links[0]);
-console.log(links[1]);
+const listen = document.querySelector('.screen-btn');
+console.log(listen);
 
 
-const title1 = document.querySelector('.screen-btn');
-console.log(title1);
+const otherItemPersent = document.querySelectorAll('.other-items.percent');
+console.log(otherItemPersent);
 
 
-const titleone = document.querySelectorAll('.other-items.percent');
-console.log(titleone);
-
-
-const titletwo = document.querySelectorAll('.other-items.number');
-console.log(titletwo);
+const otherItemNumber = document.querySelectorAll('.other-items.number');
+console.log(otherItemNumber);
 
 
 const one = document.querySelector('[class="main-controls__item rollback"]');
@@ -34,13 +35,17 @@ const two = document.querySelector('div > span');
 console.log(two);
 
 
-const onetwo = document.getElementsByClassName('total-input');
-console.log(onetwo[0]);
-console.log(onetwo[1]);
-console.log(onetwo[2]);
-console.log(onetwo[3]);
-console.log(onetwo[4]);
+const total = document.getElementsByClassName('total-input')[0];
+const totalCount = document.getElementsByClassName('total-input')[1];
+const totalCountOther = document.getElementsByClassName('total-input')[2];
+const fullTotalCount = document.getElementsByClassName('total-input')[3];
+const totalCountRollback = document.getElementsByClassName('total-input')[4];
+console.log(total);
+console.log(totalCount);
+console.log(totalCountOther);
+console.log(fullTotalCount);
+console.log(totalCountRollback);
 
 
-let call = document.querySelectorAll('.screen');
-console.log(call);
+let screens = document.querySelectorAll('.screen');
+console.log(screens);
