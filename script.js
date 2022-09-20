@@ -8,7 +8,12 @@ const buttonPlus = document.querySelector(".screen-btn");
 const otherItemsPersent = document.querySelectorAll(".other-items.percent");
 const otherItemsNumber = document.querySelectorAll(".other-items.number");
 
+const val = document.querySelector('.range-value');
 const inputRange = document.querySelector(".rollback input");
+inputRange.addEventListener('input', (e) => {
+  val.textContent = e.target.value;
+})
+console.log('inputRange', inputRange);
 const inputRangeValue = document.querySelector(".rollback .range-value");
 
 const startBtn = document.getElementsByClassName("handler_btn")[0];
@@ -21,6 +26,13 @@ const fullTotalCount = document.getElementsByClassName("total-input")[3];
 const totalCountRollback = document.getElementsByClassName("total-input")[4];
 
 let screens = document.querySelectorAll(".screen");
+
+const logger = function (event) {
+  console.dir(event.type);
+  inputRangeValue.textContent = event.target.value
+}
+inputRange.addEventListener('input', logger)
+inputRange.addEventListener('change', logger)
 
 const appData = {
   title: "",
@@ -60,11 +72,16 @@ const appData = {
    fullTotalCount.value = appData.fullPrice
   },
   addScreens: function () {
+    appData.screens = [
+      count:
+    ];
     screens = document.querySelectorAll(".screen");
 
     screens.forEach(function (screen, index) {
       const select = screen.querySelector("select");
+      console.log('select',!!select.value)
       const input = screen.querySelector("input");
+      console.log('input',!!input.value)
       const selectName = select.options[select.selectedIndex].textContent;
 
       appData.screens.push({
@@ -116,12 +133,17 @@ const appData = {
       appData.servicePricesPercent += appData.screenPrice * (appData.servicesPercent[key] / 100);
     }
     appData.fullPrice = +appData.screenPrice + appData.servicePricesNumber+ appData.servicePricesPercent;
+
+    appData.servicePercentPrice =
+    appData.fullPrice - appData.fullPrice * (appData.rollback / 100);
+
+    
   },
 
-  getServicePercentPrice: function () {
-    appData.servicePercentPrice =
-      appData.fullPrice - appData.fullPrice * (appData.rollback / 100);
-  },
+  // getServicePercentPrice: function () {
+  //   appData.servicePercentPrice =
+  //     appData.fullPrice - appData.fullPrice * (appData.rollback / 100);
+  // },
 
   getRollbackMessage: function (price) {
     if (price >= 30000) {
